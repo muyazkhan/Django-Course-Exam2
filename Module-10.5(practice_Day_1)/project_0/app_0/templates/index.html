@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><b>This is apps page</b></h1>
+
+    {% comment %} add {% endcomment %}
+    <h1>New Number: {{number|add:"5" }}</h1>
+
+    {% comment %} addslashes {% endcomment %}
+    <h1>{{ text|addslashes }}</h1>
+
+    {% comment %} capfirst {% endcomment %}
+    <h1>{{name|capfirst}}</h1>
+
+    <h1>{{ value|center:"15" }}</h1>
+
+
+    {% comment %} CUT {% endcomment %}
+    
+    <h1>{{name}}</h1>
+    <h1>{{ name|cut:"kib" }}</h1>
+
+{% comment %} datetime {% endcomment %}
+    <h1>{{ current_date|date:"D d M Y" }}</h1>
+
+    <h1>{{ name1|default:"No value available" }}</h1>
+{% comment %} dictsort {% endcomment %}
+    <ul>
+      {% for item in my_list|dictsort:"name" %}
+          <li>{{ item.name }} - {{ item.age }} years old</li>
+      {% endfor %}
+  </ul>
+
+{% comment %} divisibleby {% endcomment %}
+{% comment %} {% if number|divisibleby:"3" %}
+        <p>{{ number }} is divisible by 3.</p>
+    {% else %}
+        <p>{{ number }} is not divisible by 3.</p>
+    {% endif %} {% endcomment %}
+    <p>First Element: {{ my_list|first }}</p>
+    <h1>File Size: {{ file_size|filesizeformat }}</h1>
+    <h1>&lt;script&gt;alert('Hello');&lt;/script&gt;</h1>
+
+
+    <h1>{{ lst | join:" - " }}</h1>
+
+    <h1>{{ lst| last }}</h1>
+
+    <h1>{{ lst | length }}</h1>
+
+    <h1>{{ lst | linenumbers }}</h1>
+
+    <h1>{{ lst| lower }}</h1>
+
+    <h1>{{ name| make_list }}</h1>
+
+    <h1>{{ lst | random }}</h1>
+
+    <h1>{{ lst | slice:":2" }}</h1>
+
+    <h1>{{ name | slugify }}</h1>
+
+    <h1>{{ current_date | time:"H:i" }}</h1>
+
+    <h1>{{ name | title }}</h1>
+
+    <h1>{{  name | upper }}</h1>
+
+    <h1>{{ name | wordcount }}</h1>
+  </body>
+</html>

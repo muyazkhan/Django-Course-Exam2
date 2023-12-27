@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1>Models</h1>
+    <table class=" table table-bordered">
+      <thead>
+        <tr>
+          <th>Roll</th>
+          <th>Big Integer Field</th>
+          <th>Num</th>
+          <th>Boolean Field</th>
+          <th>Char Field</th>
+          <th>Date Field</th>
+          <th>Date Time Field</th>
+          <th>Decimal Field</th>
+          <th>Duration Field</th>
+        <th>Email Field</th>
+        <th>File Field</th>
+        <th>File Path Field</th>
+        <th>Float Field</th>
+        <th>Generic IP Address Field</th>
+        <th>Image Field</th>
+        <th>Integer Field</th>%
+        <th>JSON Field</th>
+        <th>Many To Many Field</th>
+        <th>Null Boolean Field</th>
+        <th>Slug Field</th>
+        <th>Small Integer Field</th>
+        <th>Text Field</th>
+        <th>Time Field</th>
+        <th>URL Field</th>
+        <th>UUID Field</th>
+        </tr> 
+      </thead>
+      <tbody>
+    {% comment %} students = Testmodel.objects.all()  # Note the use of parentheses () {% endcomment %}
+    {%for student in students%}
+        <tr>
+          <td>{{student.roll}}</td>
+          <td>{{student.big_integer_field}}</td>
+          <td>{{student.num}}</td>
+          <td>{{student.boolean_field}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.date_field}}</td>
+          <td>{{student.date_time_field}}</td>
+          <td>{{student.decimal_field}}</td>
+          <td>{{ student.duration_field }}</td>
+          <td>{{ student.email_field }}</td>
+          <td>{{ student.file_field }}</td>
+          <td>{{ student.file_path_field }}</td>
+          <td>{{ student.float_field }}</td>
+          <td>{{ student.generic_ip_address_field }}</td>
+          <td>{{ student.image_field }}</td>
+          <td>{{ student.integer_field }}</td>
+          <td>{{ student.json_field }}</td>
+          <td>
+              {% for item in student.many_to_many_field.all %}
+                {{ item }}
+              {% endfor %}
+          </td>
+          <td>{{student.null_boolean_field }}</td>
+          <td>{{ student.slug_field }}</td>
+          <td>{{ student.small_integer_field }}</td>
+          <td>{{ student.text_field }}</td>
+          <td>{{ student.time_field }}</td>
+          <td>{{ student.url_field }}</td>
+          <td>{{ student.uuid_field }}</td>
+          </tr>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

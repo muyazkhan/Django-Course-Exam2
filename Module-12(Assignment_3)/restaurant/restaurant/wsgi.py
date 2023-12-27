@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+"""
+WSGI config for restaurant project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant.settings')
+
+application = get_wsgi_application()
+=======
+"""
+WSGI config for restaurant project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant.settings')
+
+application = get_wsgi_application()
+>>>>>>> 415bd444ebe07c2e4277975bb5caedf0436e5ec0

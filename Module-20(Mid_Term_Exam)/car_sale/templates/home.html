@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="d-flex flex-wrap px-5 pt-3 align-items-center">
+    <div class="col-6">
+      <h1>Welcome to Our Car Enthusiast Hub!</h1>
+      <p>
+        Explore the world of automobiles with our comprehensive car blog. Whether you're a seasoned car enthusiast or just getting started, we've got something for everyone. From the latest models to in-depth brand reviews, buckle up for a thrilling ride through the fascinating world of cars.
+      </p>
+    </div>
+    
+    <div class="col-6">
+      <img src="{% static 'image/1.jpg' %}" alt="Header Image" style="width: 700px; height: 500px;">
+      {% comment %} # {% endcomment %}
+    </div>
+  </div>
+
+  <div class="container my-5 d-flex flex-wrap column-gap-4">
+    <!-- All Brands -->
+    <div class="form-check border border-warning border-2 p-2 rounded">
+      <label class="form-check-label" for="flexRadioDefault2">
+        <a class="text-capitalize fw-bold text-decoration-none text-dark" href="{% url 'home' %}">All Brand</a>
+      </label>
+    </div>
+
+    <!-- Brand Filters -->
+    {% for brand in brands %}
+      <div class="bg-Success">
+        <div class="border-danger border-2 mx-2 form-check border p-2 rounded">
+          <label class="form-check-label" for="flexRadioDefault2">
+            <a class="text-capitalize fw-bold text-decoration-none text-dark" href="{% url 'brand_name' brand.slug %}">
+              {{ brand.name }}
+            </a>
+          </label>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="col-12 p-4">
+    <h4 class="fw-bold">Total cars found: {{ cars | length }}</h4>
+    <div class="d-flex flex-wrap pt-5">
+
+      <!-- Car Details -->
+      {% for car in cars %}
+          <div class="col-sm-3">
+            <div class="card border-primary m-2">
+              <div class="p-4 mx-auto">
+                <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.model_name }} Image" />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ car.model_name }}</h5>
+                <p class="card-text fs-6">{{ car.description | truncatewords:15 }}</p>
+                <hr />
+                <h3 class="fw-bold text-success">{{ car.brand.name }}</h3>
+                <h6 class="my-2">
+                  Price: <span id="order-price">${{ car.price }}</span>
+                </h6>
+                <a href="{% url 'product_details' car.id %}" type="button" class="btn btn-outline-info fw-bold text-dark w-100">
+                  View Details
+                </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
